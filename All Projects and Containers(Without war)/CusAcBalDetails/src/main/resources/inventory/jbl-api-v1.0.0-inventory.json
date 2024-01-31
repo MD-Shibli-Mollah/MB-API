@@ -1,0 +1,42 @@
+{
+  "key" : "jbl-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/ws/{CustomerId}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.WS.ACCOUNT.BALANCES.1.0.0",
+      "selections" : [ {
+        "field" : "CUSTOMER.CODE",
+        "operand" : "EQ",
+        "param" : "CustomerId",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getAccountBalance",
+    "operationSecurity" : "Public",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "GetCusAcBal",
+  "description" : "GetCusAcBalance",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

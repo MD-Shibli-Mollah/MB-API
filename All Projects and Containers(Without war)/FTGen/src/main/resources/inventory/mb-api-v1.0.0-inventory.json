@@ -1,0 +1,36 @@
+{
+  "key" : "mb-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/payments/approve",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "FUNDS.TRANSFER,FT.API.GENERIC.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createFundsTransfer",
+    "operationSecurity" : "Public",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "CreateFundsTransfer",
+  "description" : "CreateFundsTransfer",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

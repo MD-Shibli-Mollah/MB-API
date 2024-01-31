@@ -1,0 +1,42 @@
+{
+  "key" : "mb-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/accounts/{accountId}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "PZ.API.ACCOUNTS.BALANCE.1.0.0",
+      "selections" : [ {
+        "field" : "ACCOUNTREFERENCE",
+        "operand" : "EQ",
+        "param" : "accountId",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getAcBal",
+    "operationSecurity" : "Public",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "AcBal",
+  "description" : "AcBalance",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
