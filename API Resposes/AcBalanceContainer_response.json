@@ -1,0 +1,22 @@
+{
+    "header": {
+        "audit": {
+            "T24_time": 260,
+            "responseParse_time": 0,
+            "requestParse_time": 113
+        },
+        "page_start": 1,
+        "page_token": "202104151682246335.01,99",
+        "total_size": 1,
+        "page_size": 99,
+        "status": "success"
+    },
+    "body": [
+        {
+            "accountId": "120456",
+            "accountIBAN": "GB10DEMO60161300120456",
+            "currency": "USD",
+            "availableBalance": 864933.5
+        }
+    ]
+}

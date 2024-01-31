@@ -1,0 +1,12 @@
+{
+    "header": {},
+    "body": {
+        "debitAccountId": "120456",
+        "debitCurrencyId": "USD",
+        "debitAmount": 11,
+        "creditAccountId": "120464",
+        "creditCurrencyId": "USD",
+        "beneficiaryOurCharges": "",
+        "transactionType": "AC"
+    }
+}

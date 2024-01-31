@@ -1,0 +1,58 @@
+{
+    "linkedActivities": [
+        {
+            "header": {
+                "transactionStatus": "Live",
+                "audit": {
+                    "versionNumber": "1"
+                },
+                "id": "AAACT21105MGMX46D0",
+                "status": "success"
+            },
+            "body": {
+                "arrangementId": "AA211053JH6N",
+                "activityId": "ACCOUNTS-TRANSFERIN-ARRANGEMENT",
+                "productId": "SAVINGS.STANDARD.INFINITY",
+                "currencyId": "USD",
+                "effectiveDate": "2021-04-15"
+            }
+        },
+        {
+            "header": {
+                "transactionStatus": "Live",
+                "audit": {
+                    "versionNumber": "1"
+                },
+                "id": "AAACT21105MGMX46D1",
+                "status": "success"
+            },
+            "body": {
+                "arrangementId": "AA21105M6W8Z",
+                "activityId": "ACCOUNTS-TRANSFEROUT-ARRANGEMENT",
+                "productId": "STAFF.ACCOUNT",
+                "currencyId": "USD",
+                "effectiveDate": "2021-04-15"
+            }
+        }
+    ],
+    "header": {
+        "transactionStatus": "Live",
+        "audit": {
+            "T24_time": 7915,
+            "responseParse_time": 3,
+            "requestParse_time": 481,
+            "versionNumber": "1"
+        },
+        "id": "FT21105KY99Y",
+        "status": "success"
+    },
+    "body": {
+        "transactionType": "AC",
+        "debitCurrencyId": "USD",
+        "processingDate": "2021-04-15",
+        "creditCurrencyId": "USD",
+        "debitAccountId": "120456",
+        "debitAmount": 11,
+        "creditAccountId": "120464"
+    }
+}
