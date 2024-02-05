@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-ws-jbl-api.service.v1.0">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="jbl-api-v1.0-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0/party/ws" produces="application/json" id="party-ws.service.restlet">
+        <get uri="/{CustomerId}" id="getAccountBalance">
+            <param name="CustomerId" type="path" required="true"/>
+            <to uri="direct-vm:party-ws.v1.0.getAccountBalance"/>
+        </get>
+    </rest>
+    <route id="direct-vm.party-ws.v1.0.getAccountBalance">
+        <from uri="direct-vm:party-ws.v1.0.getAccountBalance"/>
+        <to uri="direct-vm:party-ws.v1.0.0.getAccountBalance"/>
+    </route>
+</camelContext>
+
+</beans>
