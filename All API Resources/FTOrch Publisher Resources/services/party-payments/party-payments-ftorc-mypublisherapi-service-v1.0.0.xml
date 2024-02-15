@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-payments-FTOrc-myPublisherApi.service.v1.0.0">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="FTOrc-myPublisherApi-v1.0.0-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.0/party/payments" produces="application/json" id="party-payments.service.restlet">
+        <post uri="/transfer" id="createFundsTransfer">
+            <to uri="direct-vm:party-payments.v1.0.0.createFundsTransfer"/>
+        </post>
+    </rest>
+    <route id="direct-vm.party-payments.v1.0.0.createFundsTransfer">
+        <from uri="direct-vm:party-payments.v1.0.0.createFundsTransfer"/>
+        <setProperty propertyName="mockTarget">
+            <constant>party-payments/party-payments_mock_v1.0.0/createFundsTransfer-mock-v1.0.0.json</constant>
+        </setProperty>
+        <to uri="direct:mockResponder"/>
+    </route>
+    <route id="direct.mockResponder">
+        <from uri="direct:mockResponder"/>
+        <process ref="mockResponder"/>
+    </route>
+</camelContext>
+
+</beans>
