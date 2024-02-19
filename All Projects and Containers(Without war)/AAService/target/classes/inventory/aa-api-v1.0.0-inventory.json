@@ -1,0 +1,45 @@
+{
+  "key" : "aa-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/products",
+    "resources" : [ {
+      "resourceType" : "Activity",
+      "key" : "SAVINGS.ACCOUNTS",
+      "product" : "AFRCIP.SAVINGS.ACCOUNT",
+      "productGroup" : "SAVINGS.ACCOUNTS",
+      "productLine" : "ACCOUNTS",
+      "activity" : "ACCOUNTS-NEW-ARRANGEMENT",
+      "actualActivity" : "ACCOUNTS-NEW-ARRANGEMENT",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "activityVersion" : "EB.API.CIPSAVINGS.1.0.0",
+      "productResponseSameAsRequest" : true,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createSavingsAccount",
+    "operationSecurity" : "Public",
+    "summary" : "AA Savings Account Creation",
+    "description" : "AA Savings Account Creation",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false",
+      "verbosity" : "Minimal"
+    },
+    "function" : "input"
+  } ],
+  "title" : "AA Savings Account",
+  "description" : "AA Savings Account Creation",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

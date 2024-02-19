@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-products-aa-api.service.v1.0.0">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="aa-api-v1.0.0-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.0/party/products" produces="application/json" id="party-products.service.restlet">
+        <post uri="/" id="createSavingsAccount">
+            <to uri="direct-vm:party-products.v1.0.0.createSavingsAccount"/>
+        </post>
+    </rest>
+    <route id="direct-vm.party-products.v1.0.0.createSavingsAccount">
+        <from uri="direct-vm:party-products.v1.0.0.createSavingsAccount"/>
+        <setProperty propertyName="operationSecurity">
+            <constant>Public</constant>
+        </setProperty>
+        <setProperty propertyName="isBulk">
+            <constant>false</constant>
+        </setProperty>
+        <setProperty propertyName="response_verbosity">
+            <constant>Minimal</constant>
+        </setProperty>
+        <setProperty propertyName="function">
+            <constant>input</constant>
+        </setProperty>
+        <setProperty propertyName="validate_only">
+            <header>validate_only</header>
+        </setProperty>
+        <setProperty propertyName="ofsSimulationMode">
+            <header>simulationMode</header>
+        </setProperty>
+        <setProperty propertyName="activity">
+            <constant>ACCOUNTS-NEW-ARRANGEMENT</constant>
+        </setProperty>
+        <setProperty propertyName="activityVersion">
+            <constant>EB.API.CIPSAVINGS.1.0.0</constant>
+        </setProperty>
+        <setProperty propertyName="product">
+            <constant>AFRCIP.SAVINGS.ACCOUNT</constant>
+        </setProperty>
+        <setProperty propertyName="mapping">
+            <constant>dynamic_model</constant>
+        </setProperty>
+        <process ref="t24VersionProcessor"/>
+    </route>
+    <route id="direct.mockResponder">
+        <from uri="direct:mockResponder"/>
+        <process ref="mockResponder"/>
+    </route>
+</camelContext>
+
+</beans>
