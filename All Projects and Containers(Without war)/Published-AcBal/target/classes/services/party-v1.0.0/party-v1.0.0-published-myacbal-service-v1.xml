@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-v1.0.0-published-myAcBal.service.v1">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="published-myAcBal-v1-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1/party/v1.0.0" produces="application/json" id="party-v1.0.0.service.restlet">
+        <get uri="/party/accounts/{accountId}" id="getAcBal">
+            <param name="accountId" type="path" required="true"/>
+            <to uri="direct-vm:party-v1.0.0.v1.getAcBal"/>
+        </get>
+    </rest>
+    <route id="direct-vm.party-v1.0.0.v1.getAcBal">
+        <from uri="direct-vm:party-v1.0.0.v1.getAcBal"/>
+        <!-- OWN PUBLISHER API Uri -->
+        <to uri="direct-vm:party-v1.0.0.v1.0.0.getAcBal"/>
+    </route>
+</camelContext>
+
+</beans>
