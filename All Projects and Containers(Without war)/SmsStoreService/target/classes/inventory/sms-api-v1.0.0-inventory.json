@@ -1,0 +1,38 @@
+{
+  "key" : "sms-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/ebjblsmsstore/smsNumber/contact",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "EB.JBL.SMS.STORE,JBL.API.SMS.STORE.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createSms",
+    "operationSecurity" : "Public",
+    "summary" : "storeSmsFromSmsBookThroughAPI",
+    "description" : "storeSmsFromSmsBookThroughAPI",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "Sms API",
+  "description" : "API for SMS Service",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
