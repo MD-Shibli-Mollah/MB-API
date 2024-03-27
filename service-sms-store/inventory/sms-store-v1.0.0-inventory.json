@@ -1,0 +1,38 @@
+{
+  "key" : "sms-store",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/ebjblsmsstore/sms/store/{id}",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "EB.JBL.SMS.STORE,JBL.API.SMS.STORE.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createSms",
+    "operationSecurity" : "Public",
+    "summary" : "storeSmsFromSmsBookThroughAPI",
+    "description" : "storeSmsFromSmsBookThroughAPI",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "storeSmsFromSmsBookThroughAPI",
+  "description" : "storeSmsFromSmsBookThroughAPI",
+  "basepath" : "/api",
+  "host" : "api.server.com",
+  "schemes" : [ "https" ],
+  "createDynamicRoute" : false
+}
