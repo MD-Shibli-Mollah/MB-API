@@ -1,0 +1,36 @@
+{
+  "key" : "cus-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/customers/{id}/update/customers",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "CUSTOMER,JBL.API.UPDATE.CUSTOMERS.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "updateIndividualCustomer",
+    "operationSecurity" : "Public",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "Update Customer",
+  "description" : "Update Existing Customer",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

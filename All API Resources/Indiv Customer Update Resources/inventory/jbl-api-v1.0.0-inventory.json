@@ -1,0 +1,37 @@
+{
+  "key" : "jbl-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "PUT",
+    "url" : "/party/customers/{id}",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "CUSTOMER,JBL.API.UPDATE.CUSTOMERS.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "updateIndivCustomer",
+    "operationSecurity" : "Public",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "ignoreReplace" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "JBL Update Cus",
+  "description" : "JBL Update Customer",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
