@@ -1,0 +1,33 @@
+{
+    "header": {
+        "transactionStatus": "Error",
+        "audit": {
+            "T24_time": 1341,
+            "responseParse_time": 5,
+            "requestParse_time": 4126,
+            "versionNumber": "1"
+        },
+        "id": "200304",
+        "status": "failed",
+        "uniqueIdentifier": "IRFX241129804841233.01"
+    },
+    "override": {
+        "overrideDetails": [
+            {
+                "code": "O-12005",
+                "options": [
+                    "RECEIVED",
+                    "NOT RECEIVED"
+                ],
+                "description": "Have you received Introductory Document/CUS*100 from 200304}RECEIVED_NOT RECEIVED",
+                "id": "DM.CONFIRM.DOC",
+                "type": "Warning"
+            }
+        ]
+    },
+    "body": {
+        "firstName": "JOSE GUTIERREZ NITSL",
+        "gender": "MALE",
+        "mnemonic": "A200304"
+    }
+}
