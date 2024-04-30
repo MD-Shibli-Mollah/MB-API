@@ -1,0 +1,56 @@
+{
+  "key" : "teacherSalaryinfo-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/teachers/salary/information/tsi/isSalaryValid/check/{accountId}/{month}/{year}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.TSI.TEACHER.SALARY.CHECK.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "accountId",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "MONTH",
+        "operand" : "EQ",
+        "param" : "month",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "YEAR",
+        "operand" : "EQ",
+        "param" : "year",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "validateTeacherSalary",
+    "operationSecurity" : "Public",
+    "summary" : "validateTeacherSalary",
+    "description" : "validateTeacherSalary",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "Teacher Salary Info Validation",
+  "description" : "Teacher Salary Info Validation",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
