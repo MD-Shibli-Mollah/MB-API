@@ -1,1 +1,8 @@
-{"header":{},"body":{"alternateAccountNo":"GB04DEMO60161300120855","balance":"81080","accountNo":"120855"}}
+{
+    "header": {},
+    "body": {
+        "alternateAccountNo": "GB04DEMO60161300120855",
+        "balance": "81080",
+        "accountNo": "120855"
+    }
+}

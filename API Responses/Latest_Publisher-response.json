@@ -1,1 +1,11 @@
-{"header":{"ResponseStatus":"success"},"body":{"alternateAccountNo":"GB10DEMO60161300120456","balance":"7385414","accountNo":"120456","currency":"USD"}}
+{
+    "header": {
+        "ResponseStatus": "success"
+    },
+    "body": {
+        "alternateAccountNo": "GB10DEMO60161300120456",
+        "balance": "7385414",
+        "accountNo": "120456",
+        "currency": "USD"
+    }
+}
