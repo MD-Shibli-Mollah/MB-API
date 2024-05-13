@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Service
+Implementation-Version: 0.0.1-SNAPSHOT
+Specification-Vendor: Temenos
+Specification-Title: Service
+Build-Jdk-Spec: 1.8
+Created-By: Maven JAR Plugin 3.2.2
+Specification-Version: 0.0
+Implementation-Vendor: Temenos
+

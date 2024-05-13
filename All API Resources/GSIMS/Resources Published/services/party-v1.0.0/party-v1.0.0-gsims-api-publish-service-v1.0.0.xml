@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-v1.0.0-gsims-api-publish.service.v1.0.0">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.0/party/v1.0.0" produces="application/json" id="party-v1.0.0.service.restlet">
+        <get uri="/party/get/accounts/gsims/publish/{accountId}" id="getValidAccountInfoGsims">
+            <to uri="direct-vm:party-v1.0.0.v1.0.0.getValidAccountInfoGsims"/>
+        </get>
+    </rest>
+    <route id="direct-vm.party-v1.0.0.v1.0.0.getValidAccountInfoGsims">
+        <from uri="direct-vm:party-v1.0.0.v1.0.0.getValidAccountInfoGsims"/>
+        <setProperty propertyName="operationSecurity">
+            <constant>Public</constant>
+        </setProperty>
+        <setProperty propertyName="extensibility">
+            <constant>true</constant>
+        </setProperty>
+        <setProperty propertyName="accountId">
+            <header>accountId</header>
+        </setProperty>
+        <setProperty propertyName="idType">
+            <header>idType</header>
+        </setProperty>
+        <setProperty propertyName="documentId">
+            <header>documentId</header>
+        </setProperty>
+        <setProperty propertyName="credentials">
+            <header>credentials</header>
+        </setProperty>
+        <setProperty propertyName="companyId">
+            <header>companyId</header>
+        </setProperty>
+        <setProperty propertyName="deviceId">
+            <header>deviceId</header>
+        </setProperty>
+        <setProperty propertyName="userRole">
+            <header>userRole</header>
+        </setProperty>
+        <setProperty propertyName="disablePagination">
+            <header>disablePagination</header>
+        </setProperty>
+<!--         <toD uri="${properties:provider.api.base.uri}/v1.0.0/party/get/accounts/gsims/{accountId}"/> -->
+        <to uri="direct-vm:party-get.v1.0.0.getValidAccountInfoGsims"/>
+        <process ref="UpdateAccountInfo"/>
+    </route>
+    <route id="direct.mockResponder">
+        <from uri="direct:mockResponder"/>
+        <process ref="mockResponder"/>
+    </route>
+</camelContext>
+<bean id="UpdateAccountInfo" class="com.api.service.UpdateAccountInfo"/>
+</beans>

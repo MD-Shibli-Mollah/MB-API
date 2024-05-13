@@ -1,0 +1,44 @@
+{
+  "key" : "gsims-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/get/accounts/gsims/{accountId}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.ACCOUNTS.GSIMS.1.1.0",
+      "selections" : [ {
+        "field" : "ACCOUNT.NUMBER",
+        "operand" : "EQ",
+        "param" : "accountId",
+        "type" : "string"
+      }, {
+        "field" : "ID.TYPE",
+        "operand" : "EQ",
+        "param" : "idType",
+        "type" : "string"
+      }, {
+        "field" : "ID.NO",
+        "operand" : "EQ",
+        "param" : "documentId",
+        "type" : "string"
+      } ]
+    } ],
+    "operationId" : "getValidAccountInfoGsims",
+    "operationSecurity" : "Public",
+    "summary" : "getValidAccountInfoGsims",
+    "description" : "getValidAccountInfoGsims",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "getValidAccountInfoGsims",
+  "description" : "getValidAccountInfoGsims",
+  "basepath" : "/api",
+  "host" : "api.server.com",
+  "schemes" : [ "http" ],
+  "createDynamicRoute" : false
+}
