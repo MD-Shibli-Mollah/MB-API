@@ -1,0 +1,56 @@
+{
+  "key" : "psopspAccountValidation-api",
+  "version" : "v1.0.1",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/account/validation/{accountId}/{phoneNumber}/{legalId}/validationResponse",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.ACCOUNT.VALIDATION.1.0.1",
+      "selections" : [ {
+        "field" : "ACCOUNT.NO",
+        "operand" : "EQ",
+        "param" : "accountId",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "PHONE.NUMBER",
+        "operand" : "EQ",
+        "param" : "phoneNumber",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "NID.NO",
+        "operand" : "EQ",
+        "param" : "legalId",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getOrValidateAccountInfo",
+    "operationSecurity" : "Public",
+    "summary" : "getOrValidateAccountInfo",
+    "description" : "getOrValidateAccountInfo",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "PSOPSP API Account Validation",
+  "description" : "PSOPSP API Account Validation",
+  "basepath" : "/ProviderContainer/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

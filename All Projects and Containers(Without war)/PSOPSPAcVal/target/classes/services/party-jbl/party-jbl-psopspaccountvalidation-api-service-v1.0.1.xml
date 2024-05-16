@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-jbl-psopspAccountValidation-api.service.v1.0.1">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="psopspAccountValidation-api-v1.0.1-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.1/party/jbl" produces="application/json" id="party-jbl.service.restlet">
+        <get uri="/psopsp/account/validation/{accountId}/{phoneNumber}/{legalId}/validationResponse" id="getOrValidateAccountInfo">
+            <param name="accountId" type="path" required="true"/>
+            <param name="phoneNumber" type="path" required="true"/>
+            <param name="legalId" type="path" required="true"/>
+            <to uri="direct-vm:party-jbl.v1.0.1.getOrValidateAccountInfo"/>
+        </get>
+    </rest>
+    <route id="direct-vm.party-jbl.v1.0.1.getOrValidateAccountInfo">
+        <from uri="direct-vm:party-jbl.v1.0.1.getOrValidateAccountInfo"/>
+        <setProperty propertyName="operationSecurity">
+            <constant>Public</constant>
+        </setProperty>
+        <setProperty propertyName="isBulk">
+            <constant>false</constant>
+        </setProperty>
+        <setProperty propertyName="target">
+            <constant>AC.API.JBL.PSOPSP.ACCOUNT.VALIDATION.1.0.1</constant>
+        </setProperty>
+        <setProperty propertyName="selection1">
+            <constant>ACCOUNT.NO EQ {accountId}</constant>
+        </setProperty>
+        <setProperty propertyName="selection2">
+            <constant>PHONE.NUMBER EQ {phoneNumber}</constant>
+        </setProperty>
+        <setProperty propertyName="selection3">
+            <constant>NID.NO EQ {legalId}</constant>
+        </setProperty>
+        <process ref="t24EnquiryProcessor"/>
+    </route>
+    <route id="direct.mockResponder">
+        <from uri="direct:mockResponder"/>
+        <process ref="mockResponder"/>
+    </route>
+</camelContext>
+
+</beans>
