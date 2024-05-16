@@ -1,0 +1,44 @@
+{
+  "key" : "getPsopspAccountInfo-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/account/info/{id}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.ACCOUNT.INFO.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "id",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getPsopspAccountInfo",
+    "operationSecurity" : "Public",
+    "summary" : "getPsopspAccountInfo",
+    "description" : "getPsopspAccountInfo",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "PSOPSP ACCOUNT INFO",
+  "description" : "GET PSOPSP ACCOUNT INFO",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "https" ],
+  "createDynamicRoute" : false
+}
