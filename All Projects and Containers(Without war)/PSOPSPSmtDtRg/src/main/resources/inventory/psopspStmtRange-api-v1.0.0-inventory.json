@@ -1,0 +1,56 @@
+{
+  "key" : "psopspStmtRange-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/generate/stmt/date/range/{id}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.STMT.DATE.RANGE.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "id",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "FROM.DATE",
+        "operand" : "EQ",
+        "param" : "fromDate",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "TO.DATE",
+        "operand" : "EQ",
+        "param" : "toDate",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getPsopspStmtRange",
+    "operationSecurity" : "Public",
+    "summary" : "getPsopspStmtRange",
+    "description" : "getPsopspStmtRange",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "PSOPSP Generate Statement",
+  "description" : "stmt using date range",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

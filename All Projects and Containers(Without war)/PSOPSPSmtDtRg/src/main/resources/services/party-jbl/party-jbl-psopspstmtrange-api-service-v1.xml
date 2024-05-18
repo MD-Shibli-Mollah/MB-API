@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-jbl-psopspStmtRange-api.service.v1">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="psopspStmtRange-api-v1-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1/party/jbl" produces="application/json" id="party-jbl.service.restlet">
+        <get uri="/psopsp/generate/stmt/date/range/{id}" id="getPsopspStmtRange">
+            <param name="id" type="path" required="true"/>
+            <to uri="direct-vm:party-jbl.v1.getPsopspStmtRange"/>
+        </get>
+    </rest>
+    <route id="direct-vm.party-jbl.v1.getPsopspStmtRange">
+        <from uri="direct-vm:party-jbl.v1.getPsopspStmtRange"/>
+        <to uri="direct-vm:party-jbl.v1.0.0.getPsopspStmtRange"/>
+    </route>
+</camelContext>
+
+</beans>
