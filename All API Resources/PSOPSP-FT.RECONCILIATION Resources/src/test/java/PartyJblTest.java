@@ -23,7 +23,6 @@ helper.getTestSupportConnectionFactory().setRequestName(requestName);
 helper.getTestSupportConnectionFactory().setRecording(true);
 Map<String, Object> headers = new HashMap<>();
 headers.put("id", "");// THIS IS REQUIRED
-headers.put("reference", "");
 headers.put("page_size", "");
 headers.put("page_start", "");
 headers.put("page_token", "");
@@ -45,7 +44,6 @@ helper.getTestSupportConnectionFactory().setRequestName(requestName);
 helper.getTestSupportConnectionFactory().setRecording(true);
 Map<String, Object> headers = new HashMap<>();
 headers.put("id", "");// THIS IS REQUIRED
-headers.put("reference", "");
 headers.put("page_size", "");
 headers.put("page_start", "");
 headers.put("page_token", "");
@@ -67,7 +65,6 @@ helper.getTestSupportConnectionFactory().setRequestName(requestName);
 helper.getTestSupportConnectionFactory().setRecording(true);
 Map<String, Object> headers = new HashMap<>();
 headers.put("id", "");// THIS IS REQUIRED
-headers.put("reference", "");
 headers.put("page_size", "");
 headers.put("page_start", "");
 headers.put("page_token", "");
