@@ -1,0 +1,50 @@
+{
+  "key" : "getPsopspAccountBalance-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/customer/account/balance",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.CUSTOMER.ACCOUNT.BALANCE.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "accountId",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "ALT.ACCT.ID",
+        "operand" : "EQ",
+        "param" : "alternateAccountId",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getPsopspAccountBalance",
+    "operationSecurity" : "Public",
+    "summary" : "getPsopspAccountBalance",
+    "description" : "getPsopspAccountBalance",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "PSOPSP Account Balance",
+  "description" : "Get PSOPSP balance for account",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

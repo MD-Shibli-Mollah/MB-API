@@ -1,0 +1,38 @@
+{
+  "key" : "psopspOwnFundstransfer-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/payments/ac/own/internal/accounts/funds/transfer",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "FUNDS.TRANSFER,PSOPSP.API.AC.FUNDS.TRANSFER.OWN.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createPsopspFundsTransferOwn",
+    "operationSecurity" : "Public",
+    "summary" : "PSOPSP own account funds transfer",
+    "description" : "PSOPSP own account funds transfer",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "PSOPSP Own Account Transfer",
+  "description" : "PSOPSP own account funds transfer",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

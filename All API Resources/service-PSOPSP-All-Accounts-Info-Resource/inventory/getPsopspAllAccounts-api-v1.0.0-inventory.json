@@ -1,0 +1,44 @@
+{
+  "key" : "getPsopspAllAccounts-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/customer/all/accounts/{customerId}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.CUSTOMER.ALL.ACCOUNTS.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "customerId",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getPsopspAllAccounts",
+    "operationSecurity" : "Public",
+    "summary" : "getPsopspAllAccounts",
+    "description" : "getPsopspAllAccounts",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "PSOPSP Customer All Accounts",
+  "description" : "Get PSOPSP customer accounts info",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

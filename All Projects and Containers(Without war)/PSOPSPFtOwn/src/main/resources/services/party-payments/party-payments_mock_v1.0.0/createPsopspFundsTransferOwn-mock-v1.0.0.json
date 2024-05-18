@@ -1,0 +1,1 @@
+{"transactionType":"string","timeStamp":"string","debitValueDate":"string","ref":"mock-party","debitAccount":"string","creditAccount":"string","debitCurrency":"string","purpose":"string","debitAmount":"string","paymentDetails":[{"paymentDetail":"string"}]}
