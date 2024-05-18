@@ -1,19 +1,12 @@
 {
-  "key" : "jbl-api",
-  "version" : "v1.0.0",
+  "key" : "psopspFtWithChgVat-api",
+  "version" : "1.0.0",
   "paths" : [ {
-    "method" : "GET",
-    "url" : "/party/jbl/psopsp/ft/reconciliation/{id}",
+    "method" : "POST",
+    "url" : "/party/payments/ac/psopsp/fundstransfer/withchgvat/paymentConfigurations",
     "resources" : [ {
-      "resourceType" : "Query",
-      "key" : "AC.API.JBL.PSOPSP.FT.RECONCILIATION.1.0.0",
-      "selections" : [ {
-        "field" : "@ID",
-        "operand" : "EQ",
-        "param" : "id",
-        "type" : "string",
-        "required" : ""
-      } ],
+      "resourceType" : "Screen",
+      "key" : "FUNDS.TRANSFER,PSOPSP.API.AC.FT.WITH.CHG.VAT.1.0.0",
       "requestPayload" : [ ],
       "responsePayload" : [ ],
       "simulation" : false,
@@ -24,19 +17,20 @@
       "requestPayloadIds" : [ ],
       "responsePayloadIds" : [ ]
     } ],
-    "operationId" : "getFtReconciliation",
+    "operationId" : "createPsopspFtWithChgVat",
     "operationSecurity" : "Public",
-    "summary" : "JBPLC API for FT Reconciliation",
-    "description" : "API for FT Reconciliation",
+    "summary" : "createPsopspFtWithChgVat",
+    "description" : "createPsopspFtWithChgVat",
     "tags" : [ ],
     "properties" : {
       "clientType" : "INTERNAL",
       "deprecated" : "false",
       "isBulk" : "false"
-    }
+    },
+    "function" : "input"
   } ],
-  "title" : "API for FT Recon",
-  "description" : "API for FT Reconciliation",
+  "title" : "PSOPSPS Funds Transfer CHG VAT",
+  "description" : "PSOPSPS Funds Transfer with charge and vat",
   "basepath" : "/api",
   "host" : "localhost:9089",
   "schemes" : [ "http", "https" ],

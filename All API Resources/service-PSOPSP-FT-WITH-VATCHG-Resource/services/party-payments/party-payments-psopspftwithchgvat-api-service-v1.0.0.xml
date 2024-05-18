@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring
        http://camel.apache.org/schema/spring/camel-spring.xsd">
-<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-jbl-jbl-api.service.v1.0.0">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-payments-psopspFtWithChgVat-api.service.v1.0.0">
     <onException>
         <exception>java.lang.Exception</exception>
         <handled>
@@ -15,15 +15,14 @@
         </handled>
         <process ref="exceptionHandler"/>
     </onException>
-    <restConfiguration component="servlet" producerApiDoc="jbl-api-v1.0.0-swagger.json" bindingMode="auto" enableCORS="true"/>
-    <rest path="/v1.0.0/party/jbl" produces="application/json" id="party-jbl.service.restlet">
-        <get uri="/psopsp/ft/reconciliation/{id}" id="getFtReconciliation">
-            <param name="id" type="path" required="true"/>
-            <to uri="direct-vm:party-jbl.v1.0.0.getFtReconciliation"/>
-        </get>
+    <restConfiguration component="servlet" producerApiDoc="psopspFtWithChgVat-api-v1.0.0-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.0/party/payments" produces="application/json" id="party-payments.service.restlet">
+        <post uri="/ac/psopsp/fundstransfer/withchgvat/paymentConfigurations" id="createPsopspFtWithChgVat">
+            <to uri="direct-vm:party-payments.v1.0.0.createPsopspFtWithChgVat"/>
+        </post>
     </rest>
-    <route id="direct-vm.party-jbl.v1.0.0.getFtReconciliation">
-        <from uri="direct-vm:party-jbl.v1.0.0.getFtReconciliation"/>
+    <route id="direct-vm.party-payments.v1.0.0.createPsopspFtWithChgVat">
+        <from uri="direct-vm:party-payments.v1.0.0.createPsopspFtWithChgVat"/>
         <setProperty propertyName="operationSecurity">
             <constant>Public</constant>
         </setProperty>
@@ -31,12 +30,15 @@
             <constant>false</constant>
         </setProperty>
         <setProperty propertyName="target">
-            <constant>AC.API.JBL.PSOPSP.FT.RECONCILIATION.1.0.0</constant>
+            <constant>FUNDS.TRANSFER,PSOPSP.API.AC.FT.WITH.CHG.VAT.1.0.0</constant>
         </setProperty>
-        <setProperty propertyName="selection1">
-            <constant>@ID EQ {id}</constant>
+        <setProperty propertyName="mapping">
+            <constant>model</constant>
         </setProperty>
-        <process ref="t24EnquiryProcessor"/>
+        <setProperty propertyName="validate_only">
+            <header>validate_only</header>
+        </setProperty>
+        <process ref="t24VersionProcessor"/>
     </route>
     <route id="direct.mockResponder">
         <from uri="direct:mockResponder"/>

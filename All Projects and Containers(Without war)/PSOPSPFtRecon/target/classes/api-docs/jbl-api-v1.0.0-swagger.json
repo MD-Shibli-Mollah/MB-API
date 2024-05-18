@@ -18,20 +18,15 @@
     "/party/jbl/psopsp/ft/reconciliation/{id}" : {
       "get" : {
         "tags" : [ ],
-        "summary" : "API for FT Reconciliation",
-        "description" : "API for FT Recon",
+        "summary" : "JBPLC API for FT Reconciliation",
+        "description" : "API for FT Reconciliation",
         "operationId" : "getFtReconciliation",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Contains the daily position class id.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "reference",
-          "in" : "query",
-          "description" : "Indicates the transaction reference for which the history of transactions is requested. It is steered by the attribute 'booked' given the start date and end date or the entry from which the history is requested",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "page_size",

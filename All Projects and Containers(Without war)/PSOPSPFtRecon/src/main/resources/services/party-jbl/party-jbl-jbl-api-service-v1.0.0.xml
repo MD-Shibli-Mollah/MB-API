@@ -34,7 +34,7 @@
             <constant>AC.API.JBL.PSOPSP.FT.RECONCILIATION.1.0.0</constant>
         </setProperty>
         <setProperty propertyName="selection1">
-            <constant>@ID EQ {reference}</constant>
+            <constant>@ID EQ {id}</constant>
         </setProperty>
         <process ref="t24EnquiryProcessor"/>
     </route>

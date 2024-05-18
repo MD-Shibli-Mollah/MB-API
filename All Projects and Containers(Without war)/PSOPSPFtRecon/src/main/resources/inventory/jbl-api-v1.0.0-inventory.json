@@ -10,7 +10,7 @@
       "selections" : [ {
         "field" : "@ID",
         "operand" : "EQ",
-        "param" : "reference",
+        "param" : "id",
         "type" : "string",
         "required" : ""
       } ],
@@ -26,8 +26,8 @@
     } ],
     "operationId" : "getFtReconciliation",
     "operationSecurity" : "Public",
-    "summary" : "API for FT Reconciliation",
-    "description" : "API for FT Recon",
+    "summary" : "JBPLC API for FT Reconciliation",
+    "description" : "API for FT Reconciliation",
     "tags" : [ ],
     "properties" : {
       "clientType" : "INTERNAL",
