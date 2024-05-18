@@ -1,0 +1,44 @@
+{
+  "key" : "ttReconciliation-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/tellertransfer/reconciliation/pupose/{id}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "TT.API.JBL.PSOPSP.TT.RECONCILIATION.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "id",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getTtReconciliation",
+    "operationSecurity" : "Public",
+    "summary" : "getTtReconciliation",
+    "description" : "getTtReconciliation",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "TT Reconciliation purpose",
+  "description" : "for TT reconciliation purpose",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
