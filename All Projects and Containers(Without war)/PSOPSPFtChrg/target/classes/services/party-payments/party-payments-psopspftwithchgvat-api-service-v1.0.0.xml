@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans    
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+<camelContext xmlns="http://camel.apache.org/schema/spring" id="party-payments-psopspFtWithChgVat-api.service.v1.0.0">
+    <onException>
+        <exception>java.lang.Exception</exception>
+        <handled>
+            <constant>true</constant>
+        </handled>
+        <process ref="exceptionHandler"/>
+    </onException>
+    <restConfiguration component="servlet" producerApiDoc="psopspFtWithChgVat-api-v1.0.0-swagger.json" bindingMode="auto" enableCORS="true"/>
+    <rest path="/v1.0.0/party/payments" produces="application/json" id="party-payments.service.restlet">
+        <post uri="/ac/psopsp/fundstransfer/withchgvat/paymentConfigurations" id="createPsopspFtWithChgVat">
+            <to uri="direct-vm:party-payments.v1.0.0.createPsopspFtWithChgVat"/>
+        </post>
+    </rest>
+    <route id="direct-vm.party-payments.v1.0.0.createPsopspFtWithChgVat">
+        <from uri="direct-vm:party-payments.v1.0.0.createPsopspFtWithChgVat"/>
+        <setProperty propertyName="operationSecurity">
+            <constant>Public</constant>
+        </setProperty>
+        <setProperty propertyName="isBulk">
+            <constant>false</constant>
+        </setProperty>
+        <setProperty propertyName="target">
+            <constant>FUNDS.TRANSFER,PSOPSP.API.AC.FT.WITH.CHG.VAT.1.0.0</constant>
+        </setProperty>
+        <setProperty propertyName="mapping">
+            <constant>model</constant>
+        </setProperty>
+        <setProperty propertyName="validate_only">
+            <header>validate_only</header>
+        </setProperty>
+        <process ref="t24VersionProcessor"/>
+    </route>
+    <route id="direct.mockResponder">
+        <from uri="direct:mockResponder"/>
+        <process ref="mockResponder"/>
+    </route>
+</camelContext>
+
+</beans>

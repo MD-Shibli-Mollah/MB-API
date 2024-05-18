@@ -1,0 +1,38 @@
+{
+  "key" : "psopspFtWithChgVat-api",
+  "version" : "1.0.0",
+  "paths" : [ {
+    "method" : "POST",
+    "url" : "/party/payments/ac/psopsp/fundstransfer/withchgvat/paymentConfigurations",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "FUNDS.TRANSFER,PSOPSP.API.AC.FT.WITH.CHG.VAT.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "createPsopspFtWithChgVat",
+    "operationSecurity" : "Public",
+    "summary" : "createPsopspFtWithChgVat",
+    "description" : "createPsopspFtWithChgVat",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "input"
+  } ],
+  "title" : "PSOPSPS Funds Transfer CHG VAT",
+  "description" : "PSOPSPS Funds Transfer with charge and vat",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

@@ -1,0 +1,565 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "PSOPSPS Funds Transfer with charge and vat",
+    "version" : "1.0.0",
+    "title" : "PSOPSPS Funds Transfer CHG VAT"
+  },
+  "host" : "localhost:9089",
+  "basePath" : "/api/v1.0.0/",
+  "tags" : [ ],
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  }, {
+    "apiKey" : [ ]
+  } ],
+  "paths" : {
+    "/party/payments/ac/psopsp/fundstransfer/withchgvat/paymentConfigurations" : {
+      "post" : {
+        "tags" : [ ],
+        "summary" : "createPsopspFtWithChgVat",
+        "description" : "createPsopspFtWithChgVat",
+        "operationId" : "createPsopspFtWithChgVat",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "payload",
+          "description" : "body Payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PsopspFtWithChgVat"
+          }
+        }, {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "credentials",
+          "in" : "header",
+          "description" : "Username and password to authenticate the API against core-banking.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "deviceId",
+          "in" : "header",
+          "description" : "Identifies the device type",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "userRole",
+          "in" : "header",
+          "description" : "User who initiated the transaction",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "PsopspFtWithChgVatResponse",
+            "schema" : {
+              "$ref" : "#/definitions/PsopspFtWithChgVatResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessScreenErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    },
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override."
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "The actual override message."
+                  },
+                  "code" : {
+                    "type" : "string",
+                    "description" : "The code related to override message."
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            }
+          }
+        }
+      }
+    },
+    "PsopspFtWithChgVat" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PsopspFtWithChgVatBody"
+        }
+      },
+      "description" : "PsopspFtWithChgVat"
+    },
+    "PsopspFtWithChgVatBody" : {
+      "type" : "object",
+      "properties" : {
+        "chargeAmounts" : {
+          "type" : "array",
+          "description" : "Charge amount equivalent in currency of the charge account",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "chargeType" : {
+                "type" : "string",
+                "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+                "minLength" : 0,
+                "maxLength" : 10
+              },
+              "chargeAmount" : {
+                "type" : "string",
+                "description" : "Retrieves the Charge Amount after redeem",
+                "minLength" : 0,
+                "maxLength" : 12
+              }
+            }
+          }
+        },
+        "debitAccount" : {
+          "type" : "string",
+          "description" : " Identifier of the debitAccounts.",
+          "minLength" : 0,
+          "maxLength" : 12
+        },
+        "creditAccount" : {
+          "type" : "string",
+          "description" : "Identifier of the creditAccounts.",
+          "minLength" : 0,
+          "maxLength" : 13
+        },
+        "debitAmount" : {
+          "type" : "string",
+          "description" : "Amount to be debited in a payment transaction",
+          "minLength" : 0,
+          "maxLength" : 11
+        },
+        "debitValueDate" : {
+          "type" : "string",
+          "description" : "Date on which the amount will be debited for settlement",
+          "minLength" : 0,
+          "maxLength" : 14
+        },
+        "creditValueDate" : {
+          "type" : "string",
+          "description" : "Reference quoted by the credit account for a payment",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "debitReference" : {
+          "type" : "string",
+          "description" : "Reference for debit party of a payment transaction",
+          "minLength" : 0,
+          "maxLength" : 14
+        },
+        "creditReference" : {
+          "type" : "string",
+          "description" : "Reference quoted by the credit account for a payment",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "chargeCode" : {
+          "type" : "string",
+          "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example: C(Credit less Charges The Credit less Charges), D(Debit plus Charge The Debit plus Charge) , W(Waive).",
+          "minLength" : 0,
+          "maxLength" : 10
+        }
+      }
+    },
+    "ScreenHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by Transact"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "PsopspFtWithChgVatResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PsopspFtWithChgVatResponseBody"
+        }
+      },
+      "description" : "PsopspFtWithChgVatResponse"
+    },
+    "PsopspFtWithChgVatResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "chargeAmounts" : {
+          "type" : "array",
+          "description" : "Charge amount equivalent in currency of the charge account",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "chargeType" : {
+                "type" : "string",
+                "description" : "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+                "minLength" : 0,
+                "maxLength" : 10
+              },
+              "chargeAmount" : {
+                "type" : "string",
+                "description" : "Retrieves the Charge Amount after redeem",
+                "minLength" : 0,
+                "maxLength" : 12
+              }
+            }
+          }
+        },
+        "debitAccount" : {
+          "type" : "string",
+          "description" : " Identifier of the debitAccounts.",
+          "minLength" : 0,
+          "maxLength" : 12
+        },
+        "creditAccount" : {
+          "type" : "string",
+          "description" : "Identifier of the creditAccounts.",
+          "minLength" : 0,
+          "maxLength" : 13
+        },
+        "debitAmount" : {
+          "type" : "string",
+          "description" : "Amount to be debited in a payment transaction",
+          "minLength" : 0,
+          "maxLength" : 11
+        },
+        "debitValueDate" : {
+          "type" : "string",
+          "description" : "Date on which the amount will be debited for settlement",
+          "minLength" : 0,
+          "maxLength" : 14
+        },
+        "creditValueDate" : {
+          "type" : "string",
+          "description" : "Reference quoted by the credit account for a payment",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "debitReference" : {
+          "type" : "string",
+          "description" : "Reference for debit party of a payment transaction",
+          "minLength" : 0,
+          "maxLength" : 14
+        },
+        "creditReference" : {
+          "type" : "string",
+          "description" : "Reference quoted by the credit account for a payment",
+          "minLength" : 0,
+          "maxLength" : 15
+        },
+        "chargeCode" : {
+          "type" : "string",
+          "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example: C(Credit less Charges The Credit less Charges), D(Debit plus Charge The Debit plus Charge) , W(Waive).",
+          "minLength" : 0,
+          "maxLength" : 10
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        },
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by Transact"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override."
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message."
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The code related to override message."
+              },
+              "options" : {
+                "type" : "array",
+                "description" : "The usable options for the override.",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "The type of the override."
+              }
+            }
+          }
+        }
+      }
+    },
+    "ScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/ScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "ScreenErrorResponse"
+    },
+    "ScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual Transact error message "
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "BusinessScreenErrorResponse"
+    },
+    "BusinessScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual Transact error message for bad requests"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemScreenErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemScreenErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "SystemScreenErrorResponse"
+    },
+    "SystemScreenErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual Transact error message caused by server"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    }
+  }
+}
