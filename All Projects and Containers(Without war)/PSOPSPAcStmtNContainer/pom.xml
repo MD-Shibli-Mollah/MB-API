@@ -998,6 +998,11 @@
 			<artifactId>irf-core-system-services</artifactId>
 			<version>${irf-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.api.service</groupId>
+			<artifactId>PSOPSPAcStmtN</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
