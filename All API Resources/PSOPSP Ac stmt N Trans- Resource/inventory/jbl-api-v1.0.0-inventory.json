@@ -1,0 +1,50 @@
+{
+  "key" : "jbl-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/psopsp/stmt/{id}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "AC.API.JBL.PSOPSP.STMT.N.1.0.0",
+      "selections" : [ {
+        "field" : "@ID",
+        "operand" : "EQ",
+        "param" : "id",
+        "type" : "string",
+        "required" : ""
+      }, {
+        "field" : "TOP.N.TR",
+        "operand" : "EQ",
+        "param" : "numberOfTransaction",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getPsopspStmtN",
+    "operationSecurity" : "Public",
+    "summary" : "API for account statements for top n transaction",
+    "description" : "API for account statements",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "API for account statements",
+  "description" : "API for account statements for top n transaction",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
