@@ -1,0 +1,44 @@
+{
+  "key" : "img-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "GET",
+    "url" : "/party/jbl/document/images/{imageReference}",
+    "resources" : [ {
+      "resourceType" : "Query",
+      "key" : "IM.API.JBL.DOCUMENT.IMAGES.1.0.0",
+      "selections" : [ {
+        "field" : "IMAGE.REFERENCE",
+        "operand" : "EQ",
+        "param" : "imageReference",
+        "type" : "string",
+        "required" : ""
+      } ],
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "getJblDocumentImages",
+    "operationSecurity" : "Public",
+    "summary" : "The API will be used to view signature card image.",
+    "description" : "API for extracting Image id and location",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    }
+  } ],
+  "title" : "API for extracting Image id and location",
+  "description" : "The API will be used to view signature card image.",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}
