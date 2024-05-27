@@ -1,0 +1,38 @@
+{
+  "key" : "jbl-api",
+  "version" : "v1.0.0",
+  "paths" : [ {
+    "method" : "DELETE",
+    "url" : "/party/payments/del/ac/ft/{id}",
+    "resources" : [ {
+      "resourceType" : "Screen",
+      "key" : "FUNDS.TRANSFER,BEFTN.API.DEL.AC.FT.1.0.0",
+      "requestPayload" : [ ],
+      "responsePayload" : [ ],
+      "simulation" : false,
+      "consentManaged" : false,
+      "productResponseSameAsRequest" : false,
+      "removeMapping" : false,
+      "createDynamicRoute" : false,
+      "requestPayloadIds" : [ ],
+      "responsePayloadIds" : [ ]
+    } ],
+    "operationId" : "deleteBeftnFT",
+    "operationSecurity" : "Public",
+    "summary" : "The API will be used to reverse the FT transaction in case of return.",
+    "description" : "Reverse BEFTN",
+    "tags" : [ ],
+    "properties" : {
+      "clientType" : "INTERNAL",
+      "deprecated" : "false",
+      "isBulk" : "false"
+    },
+    "function" : "reverse"
+  } ],
+  "title" : "API for BEFTN Return",
+  "description" : "The API will be used to reverse the FT transaction in case of return.",
+  "basepath" : "/api",
+  "host" : "localhost:9089",
+  "schemes" : [ "http", "https" ],
+  "createDynamicRoute" : false
+}

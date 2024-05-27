@@ -1,0 +1,1 @@
+{"debitValueDate":"string","ref":"mock-party","debitAccount":"string","creditAccount":"string","debitCurrency":"string","creditReference":"string","debitReference":"string","creditValueDate":"string","debitAmount":"string","chargeAmounts":[{"chargeType":"string","chargeAmount":"string","chargeCode":"string"}]}
